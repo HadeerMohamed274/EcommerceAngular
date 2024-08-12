@@ -1,0 +1,80 @@
+<div class="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow border rounded-lg w-full max-w-sm h-max overflow-hidden mt-5">
+    <div class="relative w-full h-full">
+        @if (product.availabilityStatus === 'In Stock' ) {
+            <span class="bg-green-100 dark:bg-green-900 px-2.5 py-0.5 rounded font-medium text-green-800 text-lg dark:text-green-300 badge me-2">In Stock</span>
+            }@else if (product.availabilityStatus === 'Low Stock'){
+                <span class="bg-pink-100 dark:bg-pink-900 px-2.5 py-0.5 rounded font-medium text-lg text-pink-800 dark:text-pink-300 badge me-2">Low Stock</span>
+            }@else {
+                <span class="bg-red-100 dark:bg-red-900 px-2.5 py-0.5 rounded font-medium text-lg text-red-800 dark:text-red-300 badge me-2">Out of Stock</span>
+            }
+    </div>
+    <div class="flex justify-center items-center w-full h-56">
+        <img class="rounded-t-lg w-full h-full" [src]="product.images[0]" alt="product image" />
+    </div>
+    
+        
+    
+    <div class="px-5 pb-5">
+        <a href="#">
+            <h5 class="font-semibold text-gray-900 text-xl dark:text-white tracking-tight">{{ product.title }}</h5>
+        </a>
+        <div class="flex items-center mt-2.5 mb-5">
+            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                <app-stars [rating]="product.rating"></app-stars>
+            </div>
+            <span class="bg-blue-100 dark:bg-blue-200 px-2.5 py-0.5 rounded font-semibold text-blue-800 text-xs dark:text-blue-800 ms-3">{{ product.rating.toFixed(1) }}</span>
+        </div>
+        <div class="flex flex-row my-7">
+            @if(product.discountPercentage > 0){
+                <span class=" font-bold text-3xl text-gray-900 dark:text-white">{{discountedPrice | currency:'USD':'symbol':'1.0-0'}}</span>
+                <span class="mx-3 font-bold text-3xl text-gray-900 dark:text-white "><s>{{product.price | currency:'USD':'symbol':'1.0-0'}}</s></span>
+
+            }@else {
+                <span class="font-bold text-3xl text-gray-900 dark:text-white">{{product.price | currency:'USD':'symbol':'1.0-0'}}</span>
+            }
+        </div>
+        <div class="flex justify-around items-center">
+            <a [routerLink]="['/product-details', product.id]" class="hover:border-gold bg-gold hover:bg-white dark:hover:bg-blue-700 dark:bg-blue-600 my-3 px-5 py-2.5 border rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-center text-sm text-white hover:text-gold focus:outline-none">More Details...</a>
+            <a href="#" class="hover:border-gold bg-gold hover:bg-white dark:hover:bg-blue-700 dark:bg-blue-600 my-3 px-5 py-2.5 border rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-center text-sm text-white hover:text-gold focus:outline-none">Add to cart</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <span class="font-bold text-3xl text-gray-900 dark:text-white">$599</span> -->
+
+
+
+<!-- <div class="row">
+    <div class="mb-4">
+        <div class="card" style="width: 20rem;">
+            @if (product.availabilityStatus === 'In Stock' ) {
+            <span class="align-content-center m-4 mb-0 text-bg-success align-self-start badge">
+                In Stock</span>
+            }@else if (product.availabilityStatus === 'Low Stock'){
+            <span class="align-content-center m-4 mb-0 text-bg-danger align-self-start badge">
+                Low Stock</span>
+            }@else {
+            <span class="align-content-center m-4 mb-0 text-bg-danger align-self-start badge">
+                Out of Stock</span>
+            }
+            <img [src]="product.images[0]" class="card-img-top" alt="{{ product.title }}">
+            <div class="d-flex flex-column card-body">
+                <h5 class="card-title">
+                    {{ product.title }}
+                    <span class="float-end border-dark p-1 border">{{ product.price | currency:'USD' }}</span>
+                </h5>
+                <p class="card-text">{{ product.description }}</p>
+                <div class="d-flex gap-2 mt-auto">
+                    <a [routerLink]="['/card-details', product.id]" class="w-50 btn btn-primary">Show Details</a>
+                    <a [routerLink]="['/cart', product.id]" class="w-50 btn btn-secondary">Add to Cart</a>
+
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,12 @@
+
+.badge {
+  text-align: center;
+  width: 125px;
+  position: absolute;
+  top: 61px;
+  left: -27px;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  margin: 10px;
+  overflow: hidden;
+}

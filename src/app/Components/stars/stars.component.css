@@ -1,0 +1,24 @@
+.stars-container {
+  display: flex;
+}
+
+.star-wrapper {
+  position: relative;
+  
+  width: 20%;
+  height: 20%;
+}
+
+.star-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+.star-full i {
+  color: #FFC700;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,13 @@
+<section class="flex">
+    @for (star of starsArray; track $index) {
+        <div class="star-wrapper">
+            <div class="">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+            <div class="star-full" [ngStyle]="{'width.%': getStarWidth($index)}">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        }
+</section>

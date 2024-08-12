@@ -1,0 +1,21 @@
+.parent{
+    background-color: #F9F1E7;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.child1{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.child2{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+}
